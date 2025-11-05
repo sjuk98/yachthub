@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer
-      className="relative border-gray-200 w-[full] h-[850px] md:h-[645px] overflow-hidden"
+      className="relative border-gray-200 w-[full] h-[820px] md:h-[645px] overflow-hidden"
       style={{
         backgroundImage: "url('/assets/footer.png')",
         backgroundRepeat: "no-repeat",
@@ -19,15 +19,15 @@ export default function Footer() {
             <div className="grid md:flex justify-between w-full max-w-sm order-2 md:order-1">
               <div className="space-y-2">
                 <p className="grid font-bold text-xl m-0">
-                  Address
+                  ADDRESS
                 </p>
-                <p className="w-[260px] text-[24px] text-[#8D8D8D] font-[500] leading-[inherit]">
+                <p className="w-[260px] text-[20px] text-[#8D8D8D] font-[500] leading-[inherit]">
                   Office 210, Al Serkal Avenue, Al Quoz Industrial Area 1, Dubai, United Arab Emirates
                 </p>
                 <p className="grid font-bold text-xl m-0">
-                  Phone
+                  PHONE
                 </p>
-                <p className="w-[260px] text-[24px] text-[#8D8D8D] font-[500] leading-[inherit]">
+                <p className="w-[260px] text-[20px] text-[#8D8D8D] font-[500] leading-[inherit]">
                   +971 4 123 4567
                   <br></br>
                   +971 4 122 4524
