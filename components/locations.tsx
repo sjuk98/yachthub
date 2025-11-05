@@ -14,7 +14,7 @@ const locations = [
     img: "/assets/location1.jpg",
   },
   {
-    title1: "Amalfi Coast",
+    title1: "Amalfi",
     title2: "Coast",
 
     tag: "Popular in Europe",
@@ -59,12 +59,14 @@ const MarqueeItem = ({ data }: { data: any }) => (
     {/* Bottom Content */}
     <div className="absolute bottom-4 left-4 text-white">
       <h3
-        className="text-3xl font-semibold"
+        className="text-4xl font-light"
         style={{ fontFamily: "var(--font-awesome-serif2)" }}
       >
         {data.title1}
       </h3>
-      <h2 className="text-4xl font-semibold">{data.title2}</h2>
+      <h2 className="text-4xl font-normal" 
+      // style={{ fontFamily: "var(--font-grotesk)" }}
+      >{data.title2}</h2>
 
       <p className="text-sm opacity-80 mt-1 flex items-center gap-1">
         <FaMapMarkerAlt className="text-[14px]" />
@@ -82,7 +84,7 @@ export default function LocationsMarquee() {
       ref={container}
       className="w-full bg-white flex flex-col justify-center items-center overflow-hidden py-8"
     >
-      <h2 className="text-[33px] md:text-[44px] lg:text-[64px] mb-5">
+      <h2 className="font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5">
         Most Popular Locations
       </h2>
 

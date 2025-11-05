@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
 
   return (
     <section className="py-8 md:pb-12 text-center bg-white">
-      <h2 className="text-[33px] md:text-[44px] lg:text-[64px] mb-5 px-4">
+      <h2 className="font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5 px-12 md:px-4">
         Why Should You Choose Us?
       </h2>
 
@@ -34,10 +34,10 @@ export default function WhyChooseUs() {
               className="mb-2"
             />
             <div className="flex flex-col p-4 leading-tight">
-              <span className="text-gray-900 text-[24px]">
+              <span className="font-[Absans] text-gray-900 text-[24px]">
                 {f.title}
               </span>
-              <span className="text-gray-900  text-2xl">
+              <span className="font-[Absans] text-gray-900  text-2xl">
                 {f.subtitle}
               </span>
             </div>

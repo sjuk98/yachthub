@@ -33,17 +33,18 @@ const blogs = [
 function topReads() {
   return (
     <>
-      <section className="w-full max-w-[1424px] mx-auto mb-20">
+      <section className="w-full px-6 pb-8 md:px-18 lg:px-16 lg:mb-20 py-8">
         {/* Title */}
-        <h2 className="text-center text-3xl font-light mb-10">Top Reads</h2>
+        <h2 className="font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5 text-center">Top Reads</h2>
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {blogs.map((blog, i) => (
             <Link key={i} href="/blog/details">
-              <div className="grid grid-cols-[45%_55%] bg-white border border-gray-200 cursor-pointer hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
+              <div className="flex h-[232px] lg:h-[500px] xl:h-[554px] bg-white border border-gray-200 cursor-pointer 
+                hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
                 {/* Left Image */}
-                <div className="relative w-full h-100 md:h-90">
+                <div className="relative w-1/2 ">
                   <Image
                     src={blog.img}
                     alt={blog.title}
@@ -53,13 +54,13 @@ function topReads() {
                 </div>
 
                 {/* Right Text */}
-                <div className="p-6 flex mt-6 flex-col justify-between ">
+                <div className="w-1/2 pl-4 pr-2 py-6 flex mt-6 flex-col justify-between ">
                   <div>
                     <p className="text-md text-blue-600 font-medium mb-1">
                       Explore
                     </p>
-                    <p className="text-3xl font-bold  mb-2">{blog.title}</p>
-                    <p className="text-md font-semibold">{blog.desc}</p>
+                    <p className="text-[16.76px] lg:text-[34px] xl:text-[40px] font-bold leading-[16px] lg:leading-[36px] mb-2 tracking-[-1px] lg:tracking-[-2px]">{blog.title}</p>
+                    <p className="text-[10.05px] lg:text-[24px] text-md font-normal leading-[10px] lg:leading-[28px] tracking-[0px] lg:tracking-[-1px]">{blog.desc}</p>
                   </div>
                   <p className="text-sm font-semibold mt-4">{blog.date}</p>
                 </div>
@@ -69,8 +70,8 @@ function topReads() {
         </div>
 
         {/* View All Blogs Button */}
-        <div className="flex justify-center mt-12">
-          <button className="mt-4 px-8 py-3 border cursor-pointer border-[#A3A3A3] text-[#A3A3A3] hover:bg-black hover:text-white transition-all">
+        <div className="flex justify-center mt-4">
+          <button className="mt-4 px-8 py-3 border cursor-pointer border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
             View all Blogs
           </button>
         </div>

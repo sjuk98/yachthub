@@ -19,26 +19,18 @@ export default function Footer() {
             {/* Left Section */}
             <div className="flex justify-between w-full max-w-sm order-2 md:order-1">
               <div className="space-y-2">
-                <p className="font-bold text-xl tracking-wide">
-                  WORK <sup className="text-[12px] text-gray-400">(17)</sup>
+                <p className="grid font-bold text-xl m-0">
+                  Address
                 </p>
-                <p className="font-bold text-xl tracking-wide">
-                  ABOUT <sup className="text-[12px] text-gray-400">STUDIO</sup>
+                <p className="w-[200px] text-[12px] text-gray-400">
+                  Office 210, Al Serkal Avenue, Al Quoz Industrial Area 1, Dubai, United Arab Emirates
                 </p>
-                <p className="font-bold text-xl tracking-wide">
-                  SERVICES{" "}
-                  <sup className="text-[12px] text-gray-400"> SERVICES</sup>
+                <p className="grid font-bold text-xl m-0">
+                  Phone
                 </p>
-                <p className="font-bold text-xl tracking-wide">
-                  CLIENTS <sup className="text-[12px] text-gray-400">CORE</sup>
+                <p className="w-[200px] text-[12px] text-gray-400">
+                  +971 4 123 4567
                 </p>
-                <p className="font-bold text-xl tracking-wide md:hiiden">
-                  FUTURE <sup className="text-[12px] text-gray-400">CORE</sup>
-                </p>
-                <p className="font-bold text-xl tracking-wide md:hiiden">
-                  CONTACT <sup className="text-[12px] text-gray-400">CORE</sup>
-                </p>
-
                 {/* Social Icons */}
                 <div className="flex gap-3 pt-4">
                   <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
@@ -68,13 +60,31 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="space-y-2 hidden md:block">
-                <p className="font-bold text-xl tracking-wide">
-                  FUTURE <sup className="text-[12px] text-gray-400">CORE</sup>
+              <div className="space-y-2">
+                <p className="font-bold text-xl">
+                  WORK
+                  {/* <sup className="text-[12px] text-gray-400">(17)</sup> */}
                 </p>
-                <p className="font-bold text-xl tracking-wide">
-                  CONTACT <sup className="text-[12px] text-gray-400">CORE</sup>
+                <p className="font-bold text-xl">
+                  ABOUT
+                  {/* <sup className="text-[12px] text-gray-400">STUDIO</sup> */}
                 </p>
+                <p className="font-bold text-xl">
+                  SERVICES{" "}
+                  {/* <sup className="text-[12px] text-gray-400"> SERVICES</sup> */}
+                </p>
+                <p className="font-bold text-xl">
+                  CLIENTS
+                  {/* <sup className="text-[12px] text-gray-400">CORE</sup> */}
+                </p>
+                <p className="font-bold text-xl">
+                  FUTURE
+                  {/* <sup className="text-[12px] text-gray-400">CORE</sup> */}
+                </p>
+                {/* <p className="font-bold text-xl">
+                  CONTACT
+                  <sup className="text-[12px] text-gray-400">CORE</sup>
+                </p> */}
               </div>
             </div>
 

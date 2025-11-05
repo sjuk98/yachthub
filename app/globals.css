@@ -10,6 +10,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Awesome Serif Italic VAR";
   src: url("/fonts/awesome-serif/Awesome Serif Italic VAR-VF.ttf") format("truetype");
@@ -18,10 +19,33 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Awesome Serif VAR";
+  src: url("/fonts/Awesome-Font-Family/Awesome Serif Desktop Fonts/Variable Fonts/Awesome Serif VAR-VF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-kerning: none;
+  /* Enables kerning */
+  font-feature-settings: "kern";
+  /* Optional: ensures kerning features are on */
+
+}
+
+@font-face {
+  font-family: "Sh Ad Grotesk";
+  src: url("/fonts/sh-ad-grotesk-medium-regular_DUASU/Sh Ad Grotesk Medium Regular/Sh Ad Grotesk Medium Regular") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 
 :root {
   --font-awesome-serif: "Awesome Serif Italic VAR", serif;
+  --font-awesome-serif2: "Awesome Serif VAR", serif;
+  --font-grotesk: "Sh Ad Grotesk", serif;
 }
 
 
@@ -146,17 +170,22 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-20px); /* Increased movement */
+    transform: translateY(-20px);
+    /* Increased movement */
   }
 }
 
@@ -164,4 +193,3 @@
 .float-animation {
   animation: float 3s ease-in-out infinite;
 }
-

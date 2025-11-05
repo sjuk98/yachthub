@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav className="absolute top-0 left-0 w-full z-50 font-absans flex items-center justify-between 
-    px-2 lg:px-8 py-6 text-white bg-transparent">
+    px-2 lg:px-4 py-6 text-white bg-transparent">
       {/* Left section: Logo + Nav Links */}
       <div className="flex items-center">
         {/* Logo */}
@@ -38,7 +38,7 @@ export default function Navbar() {
         ></span>
 
         {/* Nav Links */}
-        <div className="hidden md:flex md:ml-2 lg:ml-6 items-center">
+        <div className="hidden lg:flex md:ml-2  items-center">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -66,25 +66,28 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Button className=" md:hidden block bg-white text-black hover:bg-[#dbdbdb] w-fit h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
+            Download Brochure
+          </Button>
         </div>
       )}
 
       {/* Right section: Buttons */}
       <div className="flex items-center md:space-x-4">
         {/* WhatsApp Button */}
-        <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] rounded-none text-white cursor-pointer flex items-center md:mr-0 lg:mr-4">
-
+        <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
+        rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
           <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="" />
-          <span className="text-[9px] md:text-[13px] lg:text-[15px] ">Book on WhatsApp</span>
+          <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
         </Button>
 
         {/* Get Started Button */}
-        <Button className="hidden lg:block bg-white text-black hover:bg-[#dbdbdb] w-[120px] h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
-          Get started
+        <Button className="hidden md:block bg-white text-black hover:bg-[#dbdbdb] w-fit h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
+          Download Brochure
         </Button>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-md focus:outline-none"
+          className="lg:hidden p-2 rounded-md focus:outline-none"
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

@@ -56,11 +56,11 @@ const yachts = [
 export default function FleetSection() {
   return (
     <section className="pt-10 pb-8 bg-white text-center">
-      <h2 className="text-[36px] md:text-[44px] lg:text-[64px] mb-5">
+      <h2 className="font-[Absans] text-[36px] md:text-[44px] lg:text-[64px] mb-5">
         Our Premium Fleet
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-4 md:px-4 lg:px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10">
         {yachts.map((yacht, index) => (
           <div key={index} className="relative overflow-hidden shadow-lg group w-full aspect-[319.07/158.74]  lg:aspect-[442/200]">
             {/* Yacht Image */}

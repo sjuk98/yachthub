@@ -9,74 +9,128 @@ import Newsletter from "@/components/newsLetter";
 import TopReads from "@/components/topReads";
 import Footer from "@/components/footer";
 import Book from "@/components/book";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function BlogDetails() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#destinations", label: "Destinations" },
+    { href: "#types", label: "Types" },
+    { href: "#about", label: "About" },
+    { href: "#contact", label: "Contact" },
+    { href: "/blog", label: "Blog" },
+    { href: "#services", label: "Services" },
+  ];
+
+  useEffect(() => {
+  const sections = document.querySelectorAll("article section");
+  const navLinks = document.querySelectorAll("aside ul li");
+
+  const handleScroll = () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        current = section?.querySelector("h2")?.textContent.trim() || "";
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("text-blue-600", "font-semibold");
+      if (link.textContent.trim() === current) {
+        link.classList.add("text-blue-600", "font-semibold");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   return (
     <>
       <main className="flex flex-col items-center w-full">
-        <nav className="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-6 text-black bg-transparent">
+        <nav className="absolute top-0 left-0 w-full z-50 font-absans flex items-center justify-between 
+          px-2 lg:px-4 py-6 text-white bg-transparent">
           {/* Left section: Logo + Nav Links */}
-          <div className="flex items-center space-x-12">
+          <div className="flex items-center">
             {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/assets/icon2.svg"
-                alt="Yacht Hub Dubai"
-width={186} height={48}                 className="object-contain"
-              />
+            <div className="flex items-center w-[153px] md:w-[151px] lg:w-[189px]">
+              <Image src="/assets/Group-dark.svg" alt="Logo" width={186} height={48} />
             </div>
-<span
-  style={{
-    display: "inline-block",
-    width: "2px",
-    height: "40px",
-    backgroundColor: "black",
-  }}
-></span>
+            <span className="hidden md:inline-block"
+              style={{
+                width: "2px",
+                height: "40px",
+                backgroundColor: "black",
+              }}
+            ></span>
+
             {/* Nav Links */}
-            <div className="hidden md:flex items-center space-x-8 text-base">
-              <Link
-                href="#destinations"
-className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] transition duration-200"              >
-                Destinations
-              </Link>
-              <Link href="#types" className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] transition duration-200">
-                Types
-              </Link>
-              <Link href="#about" className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] transition duration-200">
-                About
-              </Link>
-              <Link href="#contact" className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#eff3f4] transition duration-200">
-                Contact
-              </Link>
-              <Link href="/blog" className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] transition duration-200">
-                {" "}
-                Blog
-              </Link>
-              <Link href="#services" className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] transition duration-200">
-                Services
-              </Link>
+            <div className="hidden lg:flex md:ml-2  items-center">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-[Absans] md:font-[16px] lg:font-[20px] font-normal md:px-1 lg:px-2 py-1 text-[#000] hover:bg-white hover:text-[#00313F] "
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
+
           </div>
+
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="absolute top-full left-0 w-full bg-[#00313F] border-t border-white flex flex-col items-center space-y-4 py-6 lg:hidden z-50">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="font-[Absans] font-normal text-lg hover:text-[#00B8D9] transition"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button className=" md:hidden block bg-white border border-[#000] text-black hover:bg-[#dbdbdb] w-fit h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
+                Download Brochure
+              </Button>
+            </div>
+          )}
 
           {/* Right section: Buttons */}
-      <div className="flex items-center space-x-4">
-        {/* WhatsApp Button */}
-        <Button className="bg-[#02CE1A] hover:bg-[#03a41b]  w-[200px] h-[45px] rounded-none text-white cursor-pointer flex items-center">
-
-         <img src="/assets/whatsapp.svg" className="w-5 h-5" alt="" /> <span className="text-[15px]">Book on WhatsApp</span>
-        </Button>
+          <div className="flex items-center md:space-x-4">
+            {/* WhatsApp Button */}
+            <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
+              rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
+              <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="" />
+              <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
+            </Button>
 
             {/* Get Started Button */}
-        <Button className=" bg-white text-black hover:text-white hover:bg-black w-[120px] h-[45px] cursor-pointer border border-black  rounded-none font-medium transition">
-          Get started
-        </Button>
+            <Button className="hidden md:block bg-white text-black border border-[#000] hover:bg-[#dbdbdb] w-fit h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
+              Download Brochure
+            </Button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden p-2 rounded-md focus:outline-none"
+            >
+              {menuOpen ? <X size={28} color="black" /> : <Menu size={28} color="black" />}
+            </button>
           </div>
+          {/* Hamburger Icon (Mobile) */}
+
         </nav>
 
         {/* Header Section */}
         <section className="w-full bg-white pt-14 mt-12 flex flex-col items-center text-center px-4">
-          <p className="text-md text-[#3B5BFF] font-medium mb-2">Explore</p>
+          {/* <p className="text-md text-[#3B5BFF] font-medium mb-2">Explore</p> */}
           <h1 className="text-3xl md:text-5xl font-bold text-[#0F172A] max-w-3xl leading-tight">
             A Guide to Affordable Yacht Hire Options in Dubai
           </h1>
@@ -99,23 +153,25 @@ className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] tr
         </section>
 
         {/* Content Section */}
-        <section className="w-[100%] max-w-7xl my-16 grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10 text-[#0F172A]">
+        <section className="w-[100%] max-w-7xl grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10 text-[#0F172A] px-8 lg:px-12 py-16">
           {/* Sidebar */}
           <aside className="hidden md:block">
             <div className="sticky top-20">
               <h3 className="text-2xl font-bold mb-4">Contents</h3>
               <ul className="space-y-2 text-md text-gray-500">
-                <li>Introduction</li>
-                <li>Start with yacht size and layout</li>
-                <li>Duration matters more than many realize</li>
-                <li>Services you can tailor</li>
+                <li className="cursor-pointer">Introduction</li>
+                <li className="cursor-pointer">Start with yacht size and layout</li>
+                <li className="cursor-pointer">
+                  Duration matters more than many realize
+                </li>
+                <li className="cursor-pointer">Services you can tailor</li>
               </ul>
             </div>
           </aside>
 
           {/* Main Content */}
           <article className="space-y-18 space-x-30 leading-relaxed">
-            <section>
+            <section className="m-0 mb-8">
               <h2 className="text-4xl mb-2">Introduction</h2>
               <p className="text-gray-700">
                 Affordable yacht hire in Dubai is possible when you focus on
@@ -127,7 +183,7 @@ className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] tr
               </p>
             </section>
 
-            <section>
+            <section className="m-0 mb-8">
               <h2 className="text-4xl mb-2">
                 Start with yacht size and layout
               </h2>
@@ -145,7 +201,7 @@ className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] tr
               </p>
             </section>
 
-            <section>
+            <section className="m-0 mb-8">
               <h2 className="text-4xl mb-2">
                 Duration matters more than many realize
               </h2>
@@ -162,7 +218,7 @@ className="font-[Absans] fw-400 px-2 py-1 hover:bg-black hover:text-[#ffffff] tr
               </p>
             </section>
 
-            <section>
+            <section className="m-0 mb-8">
               <h2 className="text-4xl mb-2">Services you can tailor</h2>
               <p className="text-gray-700">
                 Affordability also comes down to services. Most charters let you
