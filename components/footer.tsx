@@ -21,13 +21,13 @@ export default function Footer() {
                 <p className="grid font-bold text-xl m-0">
                   ADDRESS
                 </p>
-                <p className="w-[260px] text-[20px] text-[#8D8D8D] font-[500] leading-[inherit]">
+                <p className="w-[260px] md:w-[250px] text-[18px] text-[#8D8D8D] font-[500] leading-[inherit]">
                   Office 210, Al Serkal Avenue, Al Quoz Industrial Area 1, Dubai, United Arab Emirates
                 </p>
                 <p className="grid font-bold text-xl m-0">
                   PHONE
                 </p>
-                <p className="w-[260px] text-[20px] text-[#8D8D8D] font-[500] leading-[inherit]">
+                <p className="w-[260px] text-[18px] text-[#8D8D8D] font-[500] leading-[inherit]">
                   +971 4 123 4567
                   <br></br>
                   +971 4 122 4524
@@ -60,7 +60,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
               <div className="space-y-2">
                 {/* <p className="font-bold text-xl">
                   WORK
@@ -115,7 +114,6 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-
             {/* Right Section */}
             <div className="flex flex-col items-end order-1 md:order-2 w-full justify-end">
               <Image

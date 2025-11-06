@@ -205,7 +205,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="absolute bottom-2 inset-0 md:flex justify-center items-end float-animation hidden ">
-        <Mouse width={60} height={60} />
+        <Mouse width={50} height={50} />
       </div>
 
     </section>

@@ -35,13 +35,13 @@ export default function BlogPage() {
           </h1>
         </section>
         <div className="absolute bottom-2 inset-0 md:flex justify-center items-end float-animation hidden ">
-          <Mouse width={60} height={60} color="white"/>
+          <Mouse width={50} height={50} color="white"/>
         </div>
 
         {/* ====== FEATURED BLOG ====== */}
         <section className="w-full px-6 py-8 md:px-18 lg:px-22 md:py-18 ">
           {/* Blog Card */}
-          <Link href="/blog/details">
+          <Link href={`/blog/details?slug=affordable-yacht`}>
             <div className="grid lg:grid-cols-2 bg-white border border-[#A6A6A6] cursor-pointer 
               hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
               {/* Left Content */}

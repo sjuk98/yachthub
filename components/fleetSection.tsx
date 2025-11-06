@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const yachts = [
   {
@@ -8,6 +9,7 @@ const yachts = [
     capacity: "Upto 8",
     baths: "2 baths",
     beds: "4 Beds",
+    crew: "4 Crew",
     price: "AED 15,000/day",
     image: "/assets/fleet1.jpg",
   },
@@ -16,6 +18,7 @@ const yachts = [
     capacity: "Upto 9",
     baths: "3 baths",
     beds: "5 Beds",
+    crew: "4 Crew",
     price: "AED 18,500/day",
     image: "/assets/fleet2.jpg",
   },
@@ -24,6 +27,7 @@ const yachts = [
     capacity: "Upto 12",
     baths: "4 baths",
     beds: "6 Beds",
+    crew: "4 Crew",
     price: "AED 22,000/day",
     image: "/assets/fleet1.jpg",
   },
@@ -32,6 +36,7 @@ const yachts = [
     capacity: "Upto 9",
     baths: "2 baths",
     beds: "4 Beds",
+    crew: "4 Crew",
     price: "AED 17,000/day",
     image: "/assets/fleet2.jpg",
   },
@@ -40,6 +45,7 @@ const yachts = [
     capacity: "Upto 10",
     baths: "3 baths",
     beds: "5 Beds",
+    crew: "4 Crew",
     price: "AED 19,500/day",
     image: "/assets/fleet1.jpg",
   },
@@ -48,6 +54,7 @@ const yachts = [
     capacity: "Upto 14",
     baths: "5 baths",
     beds: "7 Beds",
+    crew: "4 Crew",
     price: "AED 30,000/day",
     image: "/assets/fleet2.jpg",
   },
@@ -62,36 +69,29 @@ export default function FleetSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10">
         {yachts.map((yacht, index) => (
-          <div key={index} className="relative overflow-hidden shadow-lg group w-full aspect-[319.07/158.74]  lg:aspect-[442/200]">
+          <div key={index} className="relative overflow-hidden shadow-lg group w-full">
             {/* Yacht Image */}
             <Image
               src={yacht.image}
               alt={yacht.name}
               width={900}
               height={500}
-              className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-[300px] object-cover group-hover:scale-101 transition-transform duration-500"
             />
-
+            <div className="absolute top-0 left-0 bg-[#002BFF] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
+              {yacht.price}
+            </div>
             {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div className=" bg-gradient-to-t from-black/80 to-transparent"></div>
 
             {/* Bottom Info */}
-            <div className="absolute bottom-0 left-0 w-full text-left text-white">
-              <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-2 md:gap-2 text-sm opacity-90  pl-3 py-3">
-                  <div className="w-[90px] md:w-[108px] flex items-center">
-                    <p className="text-[17px] md:text-[18px] font-semibold">
+            <div className="w-full text-left text-white">
+              <div className="w-full flex items-center justify-between w-full">
+                <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
+                  <div className="w-full md:w-1/2 flex items-center">
+                    <p className="text-[25px] md:text-[25px] font-semibold text-black">
                       {yacht.name}
                     </p>
-
-                    <span
-                      style={{
-                        display: "inline-block",
-                        width: "1px",
-                        height: "40px",
-                        backgroundColor: "white",
-                      }}
-                    ></span>
                   </div>
 
                   {/* Icon Set (Text below Icon) */}
@@ -103,14 +103,14 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.capacity}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.capacity}</span>
                     </div>{" "}
                     <span
                       style={{
                         display: "inline-block",
                         width: "1px",
                         height: "40px",
-                        backgroundColor: "white",
+                        backgroundColor: "black",
                       }}
                     ></span>
                     <div className="flex flex-col items-center text-xs">
@@ -120,14 +120,14 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.baths}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.baths}</span>
                     </div>{" "}
                     <span
                       style={{
                         display: "inline-block",
-                        width: "1px",
+                        width: "0.5px",
                         height: "40px",
-                        backgroundColor: "white",
+                        backgroundColor: "black",
                       }}
                     ></span>
                     <div className="flex flex-col items-center me-1 text-xs">
@@ -137,15 +137,44 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.beds}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.beds}</span>
+                    </div>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "0.5px",
+                        height: "40px",
+                        backgroundColor: "black",
+                      }}
+                    ></span>
+                    <div className="flex flex-col items-center me-1 text-xs">
+                      <Image
+                        src="/assets/bed.svg"
+                        alt="Bed"
+                        width={16}
+                        height={16}
+                      />
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>
                     </div>
                   </div>
+                  <Button
+                    className="rounded-none text-white cursor-pointer transition w-full h-[47px] md:h-[65px] text-[30px] md:text-[35px]"
+                    style={{
+                      backgroundColor: "#2530FF",
+                      // height: "",
+                      fontFamily: "Absans",
+                      fontWeight: 400,
+                      lineHeight: "100%",
+                      letterSpacing: "0%",
+                      textAlign: "center",
+                    }}
+                  >
+                    Book Now
+                  </Button>
                 </div>
 
                 {/* Price Box (tight fit, no padding) */}
-                <div className="bg-[#002BFF] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
-                  {yacht.price}
-                </div>
+
               </div>
             </div>
           </div>

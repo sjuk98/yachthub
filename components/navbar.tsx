@@ -27,9 +27,11 @@ export default function Navbar() {
       <div className="flex items-center">
         {/* Logo */}
         <div className="flex items-center w-[153px] md:w-[151px] lg:w-[189px]">
-          <Image src="/assets/icon1.svg" alt="Logo" width={186} height={48} />
+          <Link href='/'>
+            <Image src="/assets/icon1.svg" alt="Logo" width={186} height={48} />
+          </Link>
         </div>
-        <span className="hidden md:inline-block"
+        <span className="hidden lg:inline-block"
           style={{
             width: "2px",
             height: "40px",
