@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // import Loader from "../Loader/Loader";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { fetchBlogBySlug } from "@/lib/utils";
 
 interface BlogPost {

@@ -24,7 +24,7 @@ interface BlogPost {
 
 }
 
-export default function BlogDetails() {
+export default function BlogDetailsClient() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
