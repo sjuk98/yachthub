@@ -32,7 +32,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40" ></div>
 
       {/* ======= TOP LEFT HEADING ======= */}
-      <div className="relative z-10 text-left pb-8 pt-8 md:pt-0 px-6 md:px-12 md:mt-30 lg:mt-0">
+      <div className="relative z-10 text-left pb-8 pt-8 md:pt-8 px-6 md:px-12 md:mt-30 lg:mt-8">
         <h1
           className="font-[Absans] grid text-center text-[33px] md:text-[66px] letterSpacing-[-6] md:text-left lineHeight-[2] "
         >
