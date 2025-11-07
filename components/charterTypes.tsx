@@ -50,7 +50,7 @@ export default function CharterTypes() {
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-8 z-10 text-left">
               <h3
-                className="!font-[CalSans] text-[31px] md:text-[43.13px] lg:text-[61px] font-normal grid  leading-[30px] md:leading-[45px]"
+                className="!font-[CalSans] text-[31px] md:text-[43.13px] lg:text-[61px] font-normal grid  leading-[30px] md:leading-[50px] lg:leading-[55px]"
                 style={{ fontFamily: "Cal Sans, sans-serif" }}
               >
                 {type.title1}
