@@ -48,10 +48,12 @@ export default function BlogDetailsClient() {
   // }, [searchParams]);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("article section");
-    const navLinks = document.querySelectorAll("aside ul li");
+
+    console.log("sj");
 
     const handleScroll = () => {
+      const sections = document.querySelectorAll("article section");
+      const navLinks = document.querySelectorAll("aside ul li");
       let current = "";
 
       sections.forEach((section) => {
@@ -226,7 +228,7 @@ export default function BlogDetailsClient() {
           {/* Sidebar */}
           <aside className="hidden lg:block">
             <div className="sticky top-20">
-              <h3 className="text-2xl font-bold mb-4">Contents</h3>
+              <h3 className="!font-[CalSans] text-2xl mb-4">Contents</h3>
               <ul className="space-y-2 text-md text-gray-500">
                 <li className="cursor-pointer" data-target="intro">Introduction</li>
                 <li className="cursor-pointer" data-target="start">Start with yacht size and layout</li>

@@ -72,7 +72,7 @@ function topReads() {
                 </div>
 
                 {/* Right Text */}
-                <div className="w-1/2 pl-4 pr-2 py-6 flex mt-6 flex-col justify-between ">
+                <div className="w-1/2 pl-4 pr-2 py-6 flex mt-5 flex-col justify-between ">
                   <div>
                     <p className="text-md text-blue-600 font-medium mb-1">
                       Explore

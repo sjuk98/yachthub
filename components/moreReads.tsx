@@ -73,12 +73,12 @@ function MoreReads() {
                   </div>
 
                   {/* Right Text */}
-                  <div className="w-1/2 pl-4 pr-2 py-6 flex mt-6 flex-col justify-between ">
+                  <div className="w-1/2 pl-4 pr-2 py-6 flex mt-6 md:mt-3 lg:mt-6 flex-col justify-between ">
                     <div>
                       <p className="text-md text-blue-600 font-medium mb-1">
                         Explore
                       </p>
-                      <p className="!font-[CalSans] text-[16.76px] lg:text-[34px] xl:text-[40px] font-normal leading-[16px] lg:leading-[36px] mb-2 tracking-[-1px] lg:tracking-[-2px]">{blog.title}</p>
+                      <p className="!font-[CalSans] text-[16.76px] lg:text-[34px] xl:text-[40px] font-normal leading-[18px] lg:leading-[38px] mb-2 ">{blog.title}</p>
                       <p className="text-[10.05px] lg:text-[24px] text-md font-normal leading-[10px] lg:leading-[28px] tracking-[0px] lg:tracking-[-1px]">{blog.desc}</p>
                     </div>
                     <p className="text-sm font-semibold mt-4">{blog.date}</p>
