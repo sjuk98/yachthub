@@ -64,9 +64,9 @@ export default function BlogPage() {
             muted
             playsInline
           />
-          <h1 className="relative z-10 text-[44.1px] leading-snug md:text-5xl font-light max-w-3xl px-20">
+          <h2 className="relative z-10 text-[44.1px] leading-snug md:text-5xl font-light max-w-3xl px-20">
             Read about life aboard the best yachts in the world
-          </h1>
+          </h2>
         </section>
         <div className="absolute bottom-2 inset-0 md:flex justify-center items-end float-animation hidden ">
           <Mouse width={50} height={50} color="white" />

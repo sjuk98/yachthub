@@ -200,9 +200,9 @@ export default function BlogDetailsClient() {
             <>
               <section className="w-full bg-white pt-20 mt-12 flex flex-col items-center text-center px-4">
 
-                <h1 className="!font-[CalSans] text-3xl md:text-5xl font-normal text-[#0F172A] max-w-3xl leading-tight">
+                <h2 className="!font-[CalSans] text-3xl md:text-5xl font-normal text-[#0F172A] max-w-3xl leading-tight">
                   {blog.title}
-                </h1>
+                </h2>
                 <p className="text-gray-500 mt-3 text-md">{blog.desc}</p>
                 <p className="text-md font-semibold mt-2 mb-3">{blog.date}</p>
               </section>

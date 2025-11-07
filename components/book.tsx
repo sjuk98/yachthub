@@ -18,7 +18,7 @@ function book() {
 
       {/* Text Content */}
       <div className="relative z-10 p-8 mb-2 w-full">
-        <h2 className="text-[40.7px] md:text-[71.22px] lg:text-[101.75px] font-bold mb-2 leading-tight">
+        <h2 className="!font-[CalSans] text-[40.7px] md:text-[71.22px] lg:text-[101.75px] mb-2 leading-tight">
           Book your next <br /> Yacht trip with us
         </h2>
 
