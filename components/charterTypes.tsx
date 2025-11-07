@@ -50,16 +50,12 @@ export default function CharterTypes() {
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-8 z-10 text-left">
               <h3
-                className="text-[31px] md:text-[43.13px] lg:text-[61px] mb-1 font-semibold"
+                className="!font-[CalSans] text-[31px] md:text-[43.13px] lg:text-[61px] font-normal grid  leading-[30px] md:leading-[45px]"
                 style={{ fontFamily: "Cal Sans, sans-serif" }}
               >
                 {type.title1}
-              </h3>
-              <h3
-                className="text-[31px] md:text-[43.13px] lg:text-[61px] mb-3 font-bold"
-                style={{ fontFamily: "Cal Sans, sans-serif" }}
-              >
-                {type.title2}
+              
+                <span>{type.title2}</span>
               </h3>
               <p className="text-[9.47px] md:text-[9.47px] lg:text-[18.7px] text-white/90 max-w-[550px] font-normal">
                 {type.desc}
