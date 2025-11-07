@@ -42,7 +42,7 @@ const MarqueeItem = ({ data }: { data: any }) => (
     {/* Background Image */}
     <Image
       src={data.img}
-      alt={data.title}
+      alt={data.title || "image"}
       width={280}
       height={350}
       className="object-cover w-full h-[350px]"

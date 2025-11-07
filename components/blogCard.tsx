@@ -21,7 +21,7 @@ export default function BlogCard({ title, desc, date, img }: BlogCardProps) {
       <div className="flex-1">
         <Image
           src={img}
-          alt={title}
+          alt={title || "image" }
           width={500}
           height={300}
           className="object-cover w-full h-full"

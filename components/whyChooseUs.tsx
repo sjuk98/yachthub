@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
           >
             <Image
               src={f.icon}
-              alt={f.title}
+              alt={f.title || "image"}
               width={36}
               height={36}
               className="mb-2"

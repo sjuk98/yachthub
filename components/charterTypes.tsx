@@ -37,7 +37,7 @@ export default function CharterTypes() {
             {/* Background Image */}
             <Image
               src={type.image}
-              alt=""
+              alt="logo"
               fill
               className="object-cover object-center"
             />

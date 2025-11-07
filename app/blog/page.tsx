@@ -10,9 +10,45 @@ import { Mouse, MoveRight } from "lucide-react";
 import NewsLetter from "@/components/newsLetter";
 import TopReads from "@/components/topReads";
 import Book from "@/components/book";
+import { useEffect, useState } from "react";
+import { fetchBlogBySlug } from "@/lib/utils";
 
 
 export default function BlogPage() {
+  const [post, setPost] = useState<any[] | null>(null);
+  const [loading, setLoading] = useState(true);
+  const slug = "affordable-yacht";
+  useEffect(() => {
+    async function loadPost() {
+      try {
+        const data = await fetchBlogBySlug(slug);
+        console.log(data);
+
+        setPost(data);
+      } catch (err) {
+        console.error("Error loading post:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadPost();
+    window.scrollTo(0, 0);
+  }, [slug]);
+  // if (loading) return <Loader />;
+  console.log("post", post);
+
+  if (!post) {
+    return (
+      <div className="bg-white text-black min-h-screen pt-40 text-center">
+        <h1 className="text-4xl font-bold">Loading...</h1>
+        <p className="mt-4">
+          <Link href="/blog" className="text-blue-600 hover:underline">
+            Back to Blog
+          </Link>
+        </p>
+      </div>
+    );
+  }
   return (
     <>
       <main className="flex flex-col items-center justify-center w-full">
@@ -35,7 +71,7 @@ export default function BlogPage() {
           </h1>
         </section>
         <div className="absolute bottom-2 inset-0 md:flex justify-center items-end float-animation hidden ">
-          <Mouse width={50} height={50} color="white"/>
+          <Mouse width={50} height={50} color="white" />
         </div>
 
         {/* ====== FEATURED BLOG ====== */}
@@ -45,32 +81,42 @@ export default function BlogPage() {
             <div className="grid lg:grid-cols-2 bg-white border border-[#A6A6A6] cursor-pointer 
               hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
               {/* Left Content */}
-              <div className="p-4 md:-8 flex flex-col justify-between">
-                <div>
-                  <p className="text-sm text-[#2530FF] font-medium mb-2">
-                    Explore
-                  </p>
-                  <h1 className="text-[22px] md:text-[25px] lg:text-[40px] font-bold leading-snug mb-3">
-                    A Guide to Affordable Yacht <br /> Hire Options in Dubai
-                  </h1>
-                  <p className="text-md font-medium">
-                    A deep dive into how you can enjoy yacht life without 
-                    breaking the bank.
-                  </p>
-                </div>
-                <p className="text-xs font-medium mt-4">March 17, 2025</p>
-              </div>
+              {post && (() => {
+                const blog = post.find((b: any) => b.slug === slug);
+                if (!blog) return <p>Blog not found</p>;
 
-              {/* Right Image */}
-              <div className="relative w-full h-68">
-                <Image
-                  src="/assets/blog-card.jpg"
-                  alt="Yacht in Dubai"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+                return (
+                  <>
+                    <div className="p-4 md:-8 flex flex-col justify-between">
+                      <div>
+                        <p className="text-sm text-[#2530FF] font-medium mb-2">
+                          Explore
+                        </p>
+                        <h1 className="!font-[CalSans] text-[22px] md:text-[25px] lg:text-[40px] font-normal leading-snug mb-3">
+                          {blog.title}
+                        </h1>
+                        <p className="text-md font-medium">
+                          {blog.desc}
+                        </p>
+                      </div>
+                      <p className="text-xs font-medium mt-4">{blog.date}</p>
+                    </div>
+
+                    {/* Right Image */}
+                    <div className="relative w-full h-68">
+                      <Image
+                        src={blog.img || "/assets/blog-card.jpg"}
+                        alt="Yacht in Dubai"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </>
+                );
+              })()}
+
+            </div >
+
           </Link>
 
         </section>

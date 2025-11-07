@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Yacht Hub Dubai",
   description: "Experience Luxury on the Dubai Marina Waters",
+  icons: {
+    icon: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon-57x57.png", sizes: "57x57" },
+      { url: "/apple-touch-icon-72x72.png", sizes: "72x72" },
+      { url: "/apple-touch-icon-114x114.png", sizes: "114x114" },
+      { url: "/apple-touch-icon-120x120.png", sizes: "120x120" },
+      { url: "/apple-touch-icon-180x180.png", sizes: "180x180" },
+    ],
+  },
 };
 
 export default function RootLayout({

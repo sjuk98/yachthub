@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 const yachts = [
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 8",
+    capacity: "Up to 8",
     baths: "2 baths",
     beds: "4 Beds",
     crew: "4 Crew",
@@ -15,7 +15,7 @@ const yachts = [
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 9",
+    capacity: "Up to 9",
     baths: "3 baths",
     beds: "5 Beds",
     crew: "4 Crew",
@@ -24,7 +24,7 @@ const yachts = [
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 12",
+    capacity: "Up to 12",
     baths: "4 baths",
     beds: "6 Beds",
     crew: "4 Crew",
@@ -33,7 +33,7 @@ const yachts = [
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 9",
+    capacity: "Up to 9",
     baths: "2 baths",
     beds: "4 Beds",
     crew: "4 Crew",
@@ -42,7 +42,7 @@ const yachts = [
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 10",
+    capacity: "Up to 10",
     baths: "3 baths",
     beds: "5 Beds",
     crew: "4 Crew",
@@ -51,7 +51,7 @@ const yachts = [
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto 14",
+    capacity: "Up to 14",
     baths: "5 baths",
     beds: "7 Beds",
     crew: "4 Crew",
@@ -73,7 +73,7 @@ export default function FleetSection() {
             {/* Yacht Image */}
             <Image
               src={yacht.image}
-              alt={yacht.name}
+              alt={yacht.name || "image"}
               width={900}
               height={500}
               className="w-full h-[300px] object-cover group-hover:scale-101 transition-transform duration-500"
@@ -158,7 +158,7 @@ export default function FleetSection() {
                     </div>
                   </div>
                   <Button
-                    className="rounded-none text-white cursor-pointer transition w-full h-[47px] md:h-[65px] text-[30px] md:text-[35px]"
+                    className="rounded-none text-white cursor-pointer transition w-full h-[40px] md:h-[55px] text-[25px] md:text-[25px]"
                     style={{
                       backgroundColor: "#2530FF",
                       // height: "",
@@ -169,7 +169,8 @@ export default function FleetSection() {
                       textAlign: "center",
                     }}
                   >
-                    Book Now
+                    Book On
+                    <img src="/assets/whatsapp.svg" className="w-6 h-6" alt="image" />
                   </Button>
                 </div>
 
@@ -183,7 +184,7 @@ export default function FleetSection() {
 
       {/* CTA Button */}
       <div className="w-full flex justify-center">
-        <button className="hidden md:block mt-8 px-8 py-3 border border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
+        <button className="font-[Absans] hidden md:block mt-8 px-8 py-3 border border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
           View Full Fleet
         </button>
       </div>

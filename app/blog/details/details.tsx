@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/navbar";
 import { FaWhatsapp } from "react-icons/fa";
 import Newsletter from "@/components/newsLetter";
-import TopReads from "@/components/topReads";
+import moreReads from "@/components/moreReads";
 import Footer from "@/components/footer";
 import Book from "@/components/book";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import { Menu, X } from "lucide-react";
 import { useParams } from "next/navigation";
 import { fetchBlogBySlug } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
+import MoreReads from "@/components/moreReads";
 
 interface BlogPost {
   img?: string;
@@ -26,6 +27,8 @@ interface BlogPost {
 
 export default function BlogDetailsClient() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [post, setPost] = useState<BlogPost[] | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const navLinks = [
     { href: "#destinations", label: "Destinations" },
@@ -54,24 +57,26 @@ export default function BlogDetailsClient() {
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 150 && rect.bottom >= 150) {
-          current = section?.querySelector("h2")?.textContent.trim() || "";
+          current = section.id; // Get the section's id
         }
       });
+      console.log(sections);
+      console.log(navLinks);
 
       navLinks.forEach((link) => {
         link.classList.remove("text-blue-600", "font-semibold");
-        if (link.textContent.trim() === current) {
+        const target = link.getAttribute("data-target");
+        if (target === current) {
           link.classList.add("text-blue-600", "font-semibold");
         }
       });
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call on mount to set initial active state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [post, setPost] = useState<BlogPost[] | null>(null);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function loadPost() {
       try {
@@ -166,7 +171,7 @@ export default function BlogDetailsClient() {
             {/* WhatsApp Button */}
             <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
               rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
-              <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="" />
+              <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="image" />
               <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
             </Button>
 
@@ -195,7 +200,7 @@ export default function BlogDetailsClient() {
             <>
               <section className="w-full bg-white pt-20 mt-12 flex flex-col items-center text-center px-4">
 
-                <h1 className="text-3xl md:text-5xl font-bold text-[#0F172A] max-w-3xl leading-tight">
+                <h1 className="!font-[CalSans] text-3xl md:text-5xl font-normal text-[#0F172A] max-w-3xl leading-tight">
                   {blog.title}
                 </h1>
                 <p className="text-gray-500 mt-3 text-md">{blog.desc}</p>
@@ -223,19 +228,17 @@ export default function BlogDetailsClient() {
             <div className="sticky top-20">
               <h3 className="text-2xl font-bold mb-4">Contents</h3>
               <ul className="space-y-2 text-md text-gray-500">
-                <li className="cursor-pointer">Introduction</li>
-                <li className="cursor-pointer">Start with yacht size and layout</li>
-                <li className="cursor-pointer">
-                  Duration matters more than many realize
-                </li>
-                <li className="cursor-pointer">Services you can tailor</li>
+                <li className="cursor-pointer" data-target="intro">Introduction</li>
+                <li className="cursor-pointer" data-target="start">Start with yacht size and layout</li>
+                <li className="cursor-pointer" data-target="duration">Duration matters more than many realize</li>
+                <li className="cursor-pointer" data-target="services">Services you can tailor</li>
               </ul>
             </div>
           </aside>
 
           {/* Main Content */}
-          <article className="space-y-18 space-x-30 leading-relaxed">
-            <section className="m-0 mb-8">
+          <article id="scrollDiv" className="space-y-18 space-x-30 leading-relaxed">
+            <section className="m-0 mb-8" id="intro">
               <h2 className="text-4xl mb-2 font-[Absans]">Introduction</h2>
               <p className="text-gray-700">
                 Affordable yacht hire in Dubai is possible when you focus on
@@ -247,7 +250,7 @@ export default function BlogDetailsClient() {
               </p>
             </section>
 
-            <section className="m-0 mb-8">
+            <section className="m-0 mb-8" id="start">
               <h2 className="text-4xl mb-2 font-[Absans]">
                 Start with yacht size and layout
               </h2>
@@ -265,7 +268,7 @@ export default function BlogDetailsClient() {
               </p>
             </section>
 
-            <section className="m-0 mb-8">
+            <section className="m-0 mb-8" id="duration">
               <h2 className="text-4xl mb-2 font-[Absans]">
                 Duration matters more than many realize
               </h2>
@@ -282,7 +285,7 @@ export default function BlogDetailsClient() {
               </p>
             </section>
 
-            <section className="m-0 mb-8">
+            <section className="m-0 mb-8" id="services">
               <h2 className="text-4xl mb-2 font-[Absans]">Services you can tailor</h2>
               <p className="text-gray-700">
                 Affordability also comes down to services. Most charters let you
@@ -302,50 +305,7 @@ export default function BlogDetailsClient() {
         {/* Newsletter Section */}
         <Newsletter />
 
-        {/* More Reads Section */}
-        <section className="w-full px-6 pb-8 md:px-18 lg:px-16 lg:mb-20 py-8">
-          {/* Title */}
-          <h2 className="font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5 text-center">More Reads</h2>
-
-          {/* Blog Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {post && post.filter((b: any) => b.slug !== slug).slice(0, 2).map((blog, i) => (
-              <Link key={i} href={`/blog/details?slug=${blog?.slug}`}>
-                <div className="flex h-[232px] lg:h-[500px] xl:h-[475px] bg-white border border-gray-200 cursor-pointer 
-                hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-                  {/* Left Image */}
-                  <div className="relative w-1/2 ">
-                    <Image
-                      src={blog.img || ""}
-                      alt={blog.title}
-                      fill
-                      className="object-fill"
-                    />
-                  </div>
-
-                  {/* Right Text */}
-                  <div className="w-1/2 pl-4 pr-2 py-6 flex mt-6 flex-col justify-between ">
-                    <div>
-                      <p className="text-md text-blue-600 font-medium mb-1">
-                        Explore
-                      </p>
-                      <p className="text-[16.76px] lg:text-[34px] xl:text-[40px] font-bold leading-[16px] lg:leading-[36px] mb-2 tracking-[-1px] lg:tracking-[-2px]">{blog.title}</p>
-                      <p className="text-[10.05px] lg:text-[24px] text-md font-normal leading-[10px] lg:leading-[28px] tracking-[0px] lg:tracking-[-1px]">{blog.desc}</p>
-                    </div>
-                    <p className="text-sm font-semibold mt-4">{blog.date}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* View All Blogs Button */}
-          <div className="flex justify-center mt-4">
-            <button className="font-[Absans] mt-4 px-8 py-3 border cursor-pointer border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
-              View all Blogs
-            </button>
-          </div>
-        </section>
+        <MoreReads />
 
         {/* Book */}
         <Book />

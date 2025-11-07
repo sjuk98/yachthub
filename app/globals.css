@@ -31,10 +31,18 @@
   /* Optional: ensures kerning features are on */
 
 }
-
+/* "C:\Users\shiju\OneDrive\Desktop\yatch\yacht\public\fonts\Cal_Sans\CalSans-Regular.ttf" */
 @font-face {
   font-family: "Sh Ad Grotesk";
   src: url("/fonts/sh-ad-grotesk-medium-regular_DUASU/Sh Ad Grotesk Medium Regular/Sh Ad Grotesk Medium Regular") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CalSans";
+  src: url("/fonts/Cal_Sans/CalSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -50,6 +58,7 @@ html {
   --font-awesome-serif: "Awesome Serif Italic VAR", serif;
   --font-awesome-serif2: "Awesome Serif VAR", serif;
   --font-grotesk: "Sh Ad Grotesk", serif;
+  --font-CalSans: "CalSans", serif;
 }
 
 

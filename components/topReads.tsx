@@ -65,7 +65,7 @@ function topReads() {
                 <div className="relative w-1/2 ">
                   <Image
                     src={blog.img || ""}
-                    alt={blog.title}
+                    alt={blog.title || "logo"}
                     fill
                     className="object-fill"
                   />
@@ -77,7 +77,7 @@ function topReads() {
                     <p className="text-md text-blue-600 font-medium mb-1">
                       Explore
                     </p>
-                    <p className="text-[16.76px] lg:text-[34px] xl:text-[40px] font-bold leading-[16px] lg:leading-[36px] mb-2 tracking-[-1px] lg:tracking-[-2px]">{blog.title}</p>
+                    <p className="!font-[CalSans] text-[16.76px] lg:text-[34px] xl:text-[40px] font-normal leading-[18px] lg:leading-[38px] mb-2 ">{blog.title}</p>
                     <p className="text-[10.05px] lg:text-[24px] text-md font-normal leading-[10px] lg:leading-[28px] tracking-[0px] lg:tracking-[-1px]">{blog.desc}</p>
                   </div>
                   <p className="text-sm font-semibold mt-4">{blog.date}</p>

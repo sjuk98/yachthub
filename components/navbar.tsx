@@ -79,7 +79,7 @@ export default function Navbar() {
         {/* WhatsApp Button */}
         <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
         rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
-          <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="" />
+          <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="image" />
           <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
         </Button>
 
